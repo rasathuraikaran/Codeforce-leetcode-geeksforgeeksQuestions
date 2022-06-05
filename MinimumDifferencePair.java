@@ -22,42 +22,31 @@ Your task is to complete the function minimum_difference() which takes the array
 
  */
 public class MinimumDifferencePair {
-    public int minimum_difference(int[] nums) {
-
-
-        int n = nums.length;
-        //initially arange to assending order then finding consecutive difference after you can find small one 
-        sort(nums);
-
-
-//find the difference between next two nuber
-        for (int i = 0; i < n; i++) {
-            if (i == n - 1) nums[i] = nums[i] - nums[0];
-            else nums[i] = nums[i + 1] - nums[i];
-
-
+   public int minimum_difference(int[] nums)
+    {
+       
+       
+           int n = nums.length;
+           Arrays.sort(nums);
+       //sort the array find the consecutive diffrence then find small one
+            int smallDiff=nums[1]- nums[0];
+      
+        
+        
+        for (int i=0;i<n;i++){
+            if(i==n-1)  nums[i]= nums[i]- nums[0];
+            else nums[i]= nums[i+1]- nums[i];
+            
+            
+            
+            if(smallDiff>nums[i])  smallDiff=nums[i];
+            
+            
+            
+            
         }
-        //then sorting
-        sort(nums);
-
-        return nums[0];
-    }
-
-    //using insertion sort
-    static void sort(int arr[]) {
-        int n = arr.length;
-        for (int i = 1; i < n; ++i) {
-            int key = arr[i];
-            int j = i - 1;
-
-            /* Move elements of arr[0..i-1], that are
-               greater than key, to one position ahead
-               of their current position */
-            while (j >= 0 && arr[j] > key) {
-                arr[j + 1] = arr[j];
-                j = j - 1;
-            }
-            arr[j + 1] = key;
-        }
+       
+        
+        return  smallDiff;
     }
 }
