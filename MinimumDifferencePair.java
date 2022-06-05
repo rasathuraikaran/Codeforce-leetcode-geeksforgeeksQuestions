@@ -26,7 +26,7 @@ public class MinimumDifferencePair {
 
 
         int n = nums.length;
-        //initially arange to assending order
+        //initially arange to assending order then finding consecutive difference after you can find small one 
         sort(nums);
 
 
